@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Docfy</title>
-
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+{% extends "layouts/default.njk" %}
+{% block body %}
   <div class="wrapper">
     <header id="header">
       <div class="container">
@@ -14,10 +7,10 @@
         <div class="user-info">
           <p class="welcome">
             Bem vindo<br>
-            <strong>Diego Fernandes</strong>
+            <strong>{{ user.name }}</strong>
           </p>
-          <a href="signin.html" class="btn btn-danger">
-            <img src="img/signout.svg">
+          <a href="/signout" class="btn btn-danger">
+            <img src="/img/signout.svg">
           </a>
         </div>
       </div>
@@ -31,7 +24,7 @@
             <form action="" method="post">
               <input type="text" name="name" placeholder="Novo projeto">
               <button type="submit" class="btn">
-                <img src="img/plus.svg">
+                <img src="/img/plus.svg">
               </button>
             </form>
           </div>
@@ -48,5 +41,4 @@
       </div>
     </section>
   </div>
-</body>
-</html>
+{% endblock %}

@@ -8,6 +8,7 @@ const guestMiddleware = require('./middlewares/guest');
 
 // Controllers
 const authController = require('./controllers/authController');
+const dashboardController = require('./controllers/dashboardController');
 
 routes.use(utilsMiddleware);
 
@@ -27,5 +28,10 @@ routes.post('/register', authController.register);
 routes.post('/authenticate', authController.authenticate);
 
 routes.get('/signout', authController.signout);
+
+/* Dashboard */
+
+routes.use('/app', userMiddleware);
+routes.get('/app/dashboard', dashboardController.index);
 
 module.exports = routes;
