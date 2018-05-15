@@ -24,4 +24,20 @@ module.exports = {
       return next(err);
     }
   },
+  async authenticate(req, res, next) {
+    try {
+      const { email, password } = req.body;
+
+      const user = await User.findOne({ where: { email } });
+      if (!await bcrypt.compare(password, user.password)) {
+        req.flash('error', 'Usuário inexistente!');
+        return res.saveAndRedirect('/');
+      }
+
+      req.session.user = user;
+      return res.saveAndRedirect('app/dashboard');
+    } catch (err) {
+      return next(err);
+    }
+  },
 };
