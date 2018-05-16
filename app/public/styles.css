@@ -377,6 +377,10 @@ input:focus, textarea:focus {
   transform: translateY(100%);
 }
 
+.modal textarea {
+  min-height: 200px;
+}
+
 .modal.active {
   transform: translateY(0);
 }

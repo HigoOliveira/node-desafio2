@@ -39,6 +39,8 @@ routes.get('/app/dashboard', dashboardController.index);
 routes.post('/app/project/store', projectController.store);
 routes.get('/app/project/:projectId', projectController.index);
 routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
-routes.get('/app/section/:projectId/new', sectionController.new);
+
+/* Section */
+routes.post('/app/section/store/:projectId', sectionController.store);
 
 module.exports = routes;

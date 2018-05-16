@@ -1,16 +1,30 @@
-const { Project, Section } = require('../models');
+const { Section } = require('../models');
 module.exports = {
-  async new(req, res, next) {
+  async store(req, res, next) {
     try {
-      const project = await Project.findOne({
-        include: [Section],
+      const { title, content } = req.body;
+      const { projectId } = req.params;
+      const url = `/app/project/${projectId}`;
+      if (!title || !content) {
+        req.flash('error', 'A seção precisa ter um título e um conteúdo.');
+        return res.saveAndRedirect(url);
+      }
+
+      const checkExists = await Section.findOne({
         where: {
-          id: req.params.projectId,
+          title,
+          ProjectId: projectId,
         },
       });
 
-      console.log(project);
-      return res.render('section/new', { project });
+      if (checkExists) {
+        req.flash('error', 'A seção já existe neste projeto');
+        return res.saveAndRedirect(url);
+      }
+      const section = await Section.create({ ...req.body, ProjectId: projectId });
+
+      req.flash('success', 'Seção registrada com sucesso!');
+      return res.saveAndRedirect(`${url}/section/${section.id}`);
     } catch (err) {
       return next(err);
     }
