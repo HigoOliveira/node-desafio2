@@ -11,7 +11,9 @@
 <article>
   <div class="project-header">
     <h1>{{ activeSection.title }}</h1>
-    <a href="">Remover seção</a>
+    <form method="POST" action="/app/project/{{ project.id }}/section/{{ activeSection.id }}?_method=DELETE">
+      <button type="submit">Remover seção</button>
+    </form>
   </div>
   {{ activeSection.content }}
 </article>

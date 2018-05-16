@@ -293,7 +293,10 @@ input:focus, textarea:focus {
   margin: 0 0 20px;
 }
 
-.wrapper section#main #content article .project-header a {
+.wrapper section#main #content article .project-header a,
+.wrapper section#main #content article .project-header button {
+  border: none;
+  background: transparent;
   margin: 0 0 0 10px;
   color: #E06666;
   text-decoration: none;

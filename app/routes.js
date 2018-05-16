@@ -42,5 +42,6 @@ routes.get('/app/project/:projectId/section/:sectionId', projectController.index
 
 /* Section */
 routes.post('/app/section/store/:projectId', sectionController.store);
+routes.delete('/app/project/:projectId/section/:sectionId', sectionController.destroy);
 
 module.exports = routes;
