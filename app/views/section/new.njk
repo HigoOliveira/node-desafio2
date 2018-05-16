@@ -1,7 +1,7 @@
 {% extends "layouts/authenticated.njk" %}
 {% block content %}
   <header>
-    <h2>Exemplo de projeto</h2>
+    <h2>{{ project.name }}</h2>
     <div class="addon">
       <a href="" class="btn btn-danger">Excluir projeto</a>
     </div>
@@ -9,11 +9,9 @@
   <section id="content">
     <nav>
       <div class="sessions">
-        <a href="">Geral</a>
-        <a href="" class="active">Banco de dados</a>
-        <a href="">Autenticação</a>
-        <a href="">API</a>
-        <a href="">Configurações</a>
+        {% for section in project.Sections %}
+          <a href="">{{ section.title }}</a>
+        {% endfor %}
       </div>
 
       <a href="#" class="btn" >Nova seção</a>

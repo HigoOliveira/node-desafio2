@@ -10,6 +10,7 @@ const guestMiddleware = require('./middlewares/guest');
 const authController = require('./controllers/authController');
 const dashboardController = require('./controllers/dashboardController');
 const projectController = require('./controllers/projectController');
+const sectionController = require('./controllers/sectionController');
 
 routes.use(utilsMiddleware);
 
@@ -35,7 +36,9 @@ routes.use('/app', userMiddleware);
 routes.get('/app/dashboard', dashboardController.index);
 
 /* Project */
-routes.get('/app/project/new', projectController.new);
 routes.post('/app/project/store', projectController.store);
+routes.get('/app/project/:projectId', projectController.index);
+routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
+routes.get('/app/section/:projectId/new', sectionController.new);
 
 module.exports = routes;

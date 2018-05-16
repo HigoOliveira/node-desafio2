@@ -1,0 +1,17 @@
+<nav>
+  <div class="sessions">
+    {% for section in project.Sections %}
+      <a href="/app/project/{{ project.id }}/section/{{ section.id }}" {% if section.id == activeSection.id %}class="active"{% endif %}>{{ section.title }}</a>
+    {% endfor %}
+  </div>
+
+  <a href="#" class="btn" >Nova seção</a>
+</nav>
+
+<article>
+  <div class="project-header">
+    <h1>{{ activeSection.title }}</h1>
+    <a href="">Remover seção</a>
+  </div>
+  {{ activeSection.content }}
+</article>

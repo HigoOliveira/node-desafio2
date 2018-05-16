@@ -1,8 +1,5 @@
-const { Project } = require('../models');
+const { Project, Section } = require('../models');
 module.exports = {
-  new(req, res) {
-    return res.render('project/new');
-  },
   async store(req, res, next) {
     try {
       const { name } = req.body;
@@ -22,7 +19,30 @@ module.exports = {
       });
 
       req.flash('success', 'Projeto criado com sucesso!');
-      return res.saveAndRedirect(`/app/project/${project.id}/section-new`);
+      return res.saveAndRedirect(`/app/section/${project.id}/new`);
+    } catch (err) {
+      return next(err);
+    }
+  },
+  async index(req, res, next) {
+    try {
+      const { projectId, sectionId } = req.params;
+      const project = await Project.findOne({
+        include: [Section],
+        where: {
+          id: projectId,
+        },
+        order: [
+          [Section, 'createdAt'],
+        ],
+      });
+
+      const activeSection = project.Sections[
+        !sectionId
+          ? 0
+          : project.Sections.findIndex(section => section.id === Number(sectionId))
+      ];
+      return res.render('project/index', { project, activeSection });
     } catch (err) {
       return next(err);
     }

@@ -18,6 +18,14 @@ body {
   -webkit-font-smoothing: antialiased !important;
 }
 
+.notification {
+  padding-top: 50px;
+  text-align: center;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
   font-family: 'Source Sans Pro', sans-serif;
   cursor: pointer;

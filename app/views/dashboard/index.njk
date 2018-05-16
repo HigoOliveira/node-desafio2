@@ -15,7 +15,7 @@
   <section id="content">
     <div class="project-list">
       {% for project in projects %}
-        <a href="project.html">{{ project.name }}</a>
+        <a href="/app/project/{{ project.id }}">{{ project.name }}</a>
       {% else %}
         <p>Você ainda não possui projetos criados ainda! :/</p>
       {% endfor %}

@@ -1,0 +1,23 @@
+{% extends "layouts/authenticated.njk" %}
+{% block content %}
+  <header>
+    <h2>{{ project.name }}</h2>
+    <div class="addon">
+      <a href="" class="btn btn-danger">Excluir projeto</a>
+    </div>
+  </header>
+  <section id="content">
+    {% if activeSection %}
+      {% include "partials/section.njk" %}
+    {% else %}
+      <div class="notification">
+        <p>
+        Ainda não há uma seção registrada!!<br />
+        Não perca mais tempo, faça isso agora!!<br />
+        <br>
+        </p>
+        <a href="#" class="btn" >Nova seção</a>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}
