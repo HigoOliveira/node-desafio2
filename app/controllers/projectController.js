@@ -47,4 +47,14 @@ module.exports = {
       return next(err);
     }
   },
+  async destroy(req, res, next) {
+    try {
+      await Project.destroy({ where: { id: req.params.projectId } });
+
+      req.flash('success', 'Projeto excluido com sucesso!');
+      return res.saveAndRedirect('/app/dashboard');
+    } catch (err) {
+      return next(err);
+    }
+  }
 };

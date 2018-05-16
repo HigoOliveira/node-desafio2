@@ -38,6 +38,7 @@ routes.get('/app/dashboard', dashboardController.index);
 /* Project */
 routes.post('/app/project/store', projectController.store);
 routes.get('/app/project/:projectId', projectController.index);
+routes.delete('/app/project/:projectId', projectController.destroy);
 routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
 
 /* Section */
