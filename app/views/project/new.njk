@@ -1,0 +1,30 @@
+{% extends "layouts/authenticated.njk" %}
+{% block content %}
+  <header>
+    <h2>Exemplo de projeto</h2>
+    <div class="addon">
+      <a href="" class="btn btn-danger">Excluir projeto</a>
+    </div>
+  </header>
+  <section id="content">
+    <nav>
+      <div class="sessions">
+        <a href="">Geral</a>
+        <a href="" class="active">Banco de dados</a>
+        <a href="">Autenticação</a>
+        <a href="">API</a>
+        <a href="">Configurações</a>
+      </div>
+
+      <a href="#" class="btn" >Nova seção</a>
+    </nav>
+
+    <article>
+      <form action="" method="POST">
+        <input type="text" name="title" placeholder="Digite o nome da seção">
+        <textarea id="content" name="content" placeholder="Conteúdo da seção"></textarea>
+        <button type="submit" class="btn">Salvar</button>
+      </form>
+    </article>
+  </section>
+{% endblock %}

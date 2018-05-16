@@ -1,9 +1,9 @@
 {% extends "layouts/authenticated.njk" %}
 {% block content %}
   <header>
-    <h2>Meus projetos (4)</h2>
+    <h2>Meus projetos ({{ projects.length }})</h2>
     <div class="addon">
-      <form action="" method="post">
+      <form action="/app/project/store" method="post">
         <input type="text" name="name" placeholder="Novo projeto">
         <button type="submit" class="btn">
           <img src="/img/plus.svg">
@@ -14,10 +14,11 @@
 
   <section id="content">
     <div class="project-list">
-      <a href="project.html">Exemplo de projeto</a>
-      <a href="project.html">Outro projeto</a>
-      <a href="project.html">Mais um projeto</a>
-      <a href="project.html">Projeto exemplo</a>
+      {% for project in projects %}
+        <a href="project.html">{{ project.name }}</a>
+      {% else %}
+        <p>Você ainda não possui projetos criados ainda! :/</p>
+      {% endfor %}
     </div>
   </section>
 {% endblock %}
