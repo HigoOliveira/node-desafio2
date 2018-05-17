@@ -25,7 +25,7 @@
   <div class="modal" id="new-section">
     <form class="modal-content" method="POST" action="/app/section/store/{{ project.id }}">
       <input type="text" name="title" placeholder="Título da seção">
-      <textarea id="content" name="content" placeholder="Conteúdo da seção"></textarea>
+      <textarea id="content" class="mde" name="content" placeholder="Conteúdo da seção"></textarea>
       <button type="submit">SALVAR SEÇÃO</button>
       <a href="#" data-modal-close="#new-section">CANCELAR</a>
     </form>

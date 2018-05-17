@@ -45,4 +45,13 @@ routes.get('/app/project/:projectId/section/:sectionId', projectController.index
 routes.post('/app/section/store/:projectId', sectionController.store);
 routes.delete('/app/project/:projectId/section/:sectionId', sectionController.destroy);
 
+routes.use((err, req, res, _next) => {
+  res.status(err.status || 500);
+
+  return res.render('errors/index', {
+    message: err.message,
+    error: process.env.NODE_ENV === 'production' ? {} : err,
+  });
+});
+
 module.exports = routes;

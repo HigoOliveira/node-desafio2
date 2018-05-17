@@ -8,7 +8,6 @@ $(document).ready(function() {
     if (alert)
       alert.className += ' alert-hidden';
   }, 3000);
-
   /**
    * MDE Editor
    */
