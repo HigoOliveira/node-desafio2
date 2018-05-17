@@ -1,4 +1,5 @@
 const { Section } = require('../models');
+
 module.exports = {
   async store(req, res, next) {
     try {
@@ -25,6 +26,26 @@ module.exports = {
 
       req.flash('success', 'Seção registrada com sucesso!');
       return res.saveAndRedirect(`${url}/section/${section.id}`);
+    } catch (err) {
+      return next(err);
+    }
+  },
+  async update(req, res, next) {
+    try {
+      const { sectionId, projectId } = req.params;
+      const { title, content } = req.body;
+      const url = `/app/project/${projectId}/section/${sectionId}`;
+
+      if (!title || !content) {
+        req.flash('error', 'A seção precisa ter um título e um conteúdo.');
+        return res.saveAndRedirect(url);
+      }
+
+      const section = await Section.findById(sectionId);
+      await section.update(req.body);
+      req.flash('success', 'Seção atualizada com sucesso!');
+
+      return res.saveAndRedirect(url);
     } catch (err) {
       return next(err);
     }

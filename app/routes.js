@@ -44,6 +44,7 @@ routes.delete('/app/project/:projectId', projectController.destroy);
 /* Section */
 routes.post('/app/project/:projectId/section/store', sectionController.store);
 routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
+routes.put('/app/project/:projectId/section/:sectionId', sectionController.update);
 routes.delete('/app/project/:projectId/section/:sectionId', sectionController.destroy);
 
 routes.use((err, req, res, _next) => {
