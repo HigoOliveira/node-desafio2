@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
 
+html {
+  overflow: hidden;
+}
+
 html,
 body {
   height: 100%;
@@ -306,6 +310,15 @@ input:focus, textarea:focus {
   margin: 0 0 0 10px;
   color: #E06666;
   font-size: 14px;
+}
+
+.wrapper #section.container .hljs {
+  white-space: pre-wrap;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 20px;
+  margin: 0 0 20px;
 }
 
 .clear {

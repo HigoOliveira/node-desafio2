@@ -17,7 +17,9 @@
       <button type="submit">Remover seção</button>
     </form>
   </div>
+  <div id="section" class="container">
     {{ activeSection.formattedContent | safe}}
+  </div>
 </article>
 <div class="modal" id="edit-section">
   <form class="modal-content" method="POST" action="/app/project/{{ project.id }}/section/{{ activeSection.id }}?_method=PUT">
