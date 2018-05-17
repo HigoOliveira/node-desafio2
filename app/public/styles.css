@@ -415,9 +415,16 @@ input:focus, textarea:focus {
   border-radius: 3px;
 }
 
-.CodeMirror,
-.CodeMirror-scroll {
-    max-height: 300px;
+.modal-content .content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px;
+  max-height: 400px;
+}
+
+.modal-content .content-container .CodeMirror {
+  flex: 1;
 }
 
 .modal-content button {
@@ -434,7 +441,7 @@ input:focus, textarea:focus {
   transition: all .2s;
   border: 0;
   cursor: pointer;
-  margin: 10px 0 10px;
+  margin: 0 0 10px;
 }
 
 .modal-content button:hover {
