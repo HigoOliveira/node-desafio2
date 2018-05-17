@@ -1,4 +1,5 @@
 const { Project, Section } = require('../models');
+
 module.exports = {
   async store(req, res, next) {
     try {
@@ -19,7 +20,7 @@ module.exports = {
       });
 
       req.flash('success', 'Projeto criado com sucesso!');
-      return res.saveAndRedirect(`/app/section/${project.id}/new`);
+      return res.saveAndRedirect(`/app/project/${project.id}`);
     } catch (err) {
       return next(err);
     }
@@ -32,9 +33,6 @@ module.exports = {
         where: {
           id: projectId,
         },
-        order: [
-          [Section, 'createdAt'],
-        ],
       });
 
       const activeSection = project.Sections[
@@ -56,5 +54,5 @@ module.exports = {
     } catch (err) {
       return next(err);
     }
-  }
+  },
 };

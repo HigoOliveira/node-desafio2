@@ -303,6 +303,11 @@ input:focus, textarea:focus {
   font-size: 14px;
 }
 
+.clear {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .wrapper section#main #content article h1 {
   color: #444;
   font-size: 24px;

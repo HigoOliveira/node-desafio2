@@ -23,7 +23,7 @@
     {% endif %}
   </section>
   <div class="modal" id="new-section">
-    <form class="modal-content" method="POST" action="/app/section/store/{{ project.id }}">
+    <form class="modal-content" method="POST" action="/app/project/{{ project.id }}/section/store">
       <input type="text" name="title" placeholder="Título da seção">
       <textarea id="content" class="mde" name="content" placeholder="Conteúdo da seção"></textarea>
       <button type="submit">SALVAR SEÇÃO</button>

@@ -1,4 +1,5 @@
 const express = require('express');
+
 const routes = express.Router();
 
 // Middlawres
@@ -39,10 +40,10 @@ routes.get('/app/dashboard', dashboardController.index);
 routes.post('/app/project/store', projectController.store);
 routes.get('/app/project/:projectId', projectController.index);
 routes.delete('/app/project/:projectId', projectController.destroy);
-routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
 
 /* Section */
-routes.post('/app/section/store/:projectId', sectionController.store);
+routes.post('/app/project/:projectId/section/store', sectionController.store);
+routes.get('/app/project/:projectId/section/:sectionId', projectController.index);
 routes.delete('/app/project/:projectId/section/:sectionId', sectionController.destroy);
 
 routes.use((err, req, res, _next) => {
