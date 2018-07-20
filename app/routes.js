@@ -47,6 +47,7 @@ routes.get('/app/project/:projectId/section/:sectionId', projectController.index
 routes.put('/app/project/:projectId/section/:sectionId', sectionController.update);
 routes.delete('/app/project/:projectId/section/:sectionId', sectionController.destroy);
 
+// Pega todos os erros
 routes.use((err, req, res, _next) => {
   res.status(err.status || 500);
 
